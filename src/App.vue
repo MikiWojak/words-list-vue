@@ -1,9 +1,15 @@
 <template>
-    <div> </div>
+    <div>
+        <words />
+    </div>
 </template>
 
 <script>
 export default {
-    name: 'App'
+    name: 'App',
+
+    components: {
+        Words: () => import('@/views/Words')
+    }
 };
 </script>
