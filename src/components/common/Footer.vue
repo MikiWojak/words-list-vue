@@ -1,5 +1,7 @@
 <template>
-    <v-footer app absolute dense>2021 MikiWojak</v-footer>
+    <v-footer app absolute class="orange justify-center">
+        <span>2021 MikiWojak</span>
+    </v-footer>
 </template>
 
 <script>
