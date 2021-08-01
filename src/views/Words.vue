@@ -1,9 +1,9 @@
 <template>
-    <div>
+    <v-container>
         <h1>Words</h1>
 
         <words-table />
-    </div>
+    </v-container>
 </template>
 
 <script>

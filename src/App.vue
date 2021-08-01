@@ -1,7 +1,13 @@
 <template>
-    <div>
-        <words />
-    </div>
+    <v-app>
+        <app-header />
+
+        <v-main>
+            <words />
+        </v-main>
+
+        <app-footer />
+    </v-app>
 </template>
 
 <script>
@@ -9,7 +15,9 @@ export default {
     name: 'App',
 
     components: {
-        Words: () => import('@/views/Words')
+        AppHeader: () => import('@/components/common/Header'),
+        Words: () => import('@/views/Words'),
+        AppFooter: () => import('@/components/common/Footer')
     }
 };
 </script>
