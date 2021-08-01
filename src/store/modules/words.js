@@ -1,4 +1,4 @@
-const state = () => {
+const state = () => ({
     items: [
         {
             word: 'shield',
@@ -30,15 +30,21 @@ const state = () => {
             notes: '',
             completed: false
         }
-    ];
-};
+    ]
+});
 
 const getters = {
     items: state => state.items
 };
 
+const mutations = {};
+
+const actions = {};
+
 export default {
     namespaced: true,
     state,
-    getters
+    getters,
+    mutations,
+    actions
 };

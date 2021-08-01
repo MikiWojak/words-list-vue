@@ -5,7 +5,15 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
-    name: 'Table'
+    name: 'Table',
+
+    computed: {
+        ...mapGetters({
+            words: 'words/items'
+        })
+    }
 };
 </script>
