@@ -1,7 +1,5 @@
 <template>
     <v-container>
-        <h1>Words</h1>
-
         <words-table />
     </v-container>
 </template>
