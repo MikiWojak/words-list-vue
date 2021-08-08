@@ -1,6 +1,10 @@
 <template>
     <div>
         <v-data-table :headers="headers" :items="words" class="elevation-1">
+            <template v-slot:top>
+                <table-header />
+            </template>
+
             <template v-slot:[`item.actions`]>
                 <v-btn icon>
                     <span>
@@ -23,6 +27,10 @@ import { mapGetters } from 'vuex';
 
 export default {
     name: 'Table',
+
+    components: {
+        TableHeader: () => import('@/components/words/TableHeader')
+    },
 
     computed: {
         ...mapGetters({
