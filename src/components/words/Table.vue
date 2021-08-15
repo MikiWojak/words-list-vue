@@ -39,6 +39,7 @@ export default {
 
         headers() {
             return [
+                { text: 'ID', value: 'id' },
                 { text: 'Word', value: 'word' },
                 { text: 'Translation', value: 'translation' },
                 { text: 'Completed', value: 'completed' },
