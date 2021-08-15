@@ -12,7 +12,7 @@
                     </span>
                 </v-btn>
 
-                <v-btn icon>
+                <v-btn icon @click="openDeleteDialog(item.id)">
                     <span>
                         <v-icon small>mdi-delete</v-icon>
                     </span>
@@ -25,6 +25,12 @@
             :edited-item="editedItem"
             @close="closeEditDialog"
         />
+
+        <delete-dialog
+            :is-opened="!!deletedItemId"
+            :deleted-item-id="deletedItemId"
+            @close="closeDeleteDialog"
+        />
     </div>
 </template>
 
@@ -36,12 +42,14 @@ export default {
 
     components: {
         TableHeader: () => import('@/components/words/TableHeader'),
-        AddEditDialog: () => import('@/components/words/AddEditDialog')
+        AddEditDialog: () => import('@/components/words/AddEditDialog'),
+        DeleteDialog: () => import('@/components/words/DeleteDialog')
     },
 
     data() {
         return {
-            editedItem: null
+            editedItem: null,
+            deletedItemId: 0
         };
     },
 
@@ -68,6 +76,13 @@ export default {
 
         closeEditDialog() {
             this.editedItem = null;
+        },
+
+        openDeleteDialog(id) {
+            this.deletedItemId = id;
+        },
+        closeDeleteDialog() {
+            this.deletedItemId = 0;
         }
     }
 };

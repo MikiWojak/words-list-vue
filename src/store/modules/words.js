@@ -1,29 +1,7 @@
 const state = () => ({
-    idForItem: 4,
+    idForItem: 1,
 
-    items: [
-        {
-            id: 1,
-            word: 'heater shield',
-            translation: 'tarcza trójkątna',
-            notes: '',
-            completed: false
-        },
-        {
-            id: 2,
-            word: 'longsword',
-            translation: 'miecz długi',
-            notes: '',
-            completed: false
-        },
-        {
-            id: 3,
-            word: 'mace',
-            translation: 'buzdygan',
-            notes: '',
-            completed: false
-        }
-    ]
+    items: []
 });
 
 const getters = {
@@ -45,6 +23,14 @@ const mutations = {
         }
     },
 
+    DESTROY_WORD(state, id) {
+        const index = state.items.findIndex(item => item.id === id);
+
+        if (~index) {
+            state.items.splice(index, 1);
+        }
+    },
+
     INCREMENT_ID(state) {
         state.idForItem++;
     }
@@ -58,6 +44,10 @@ const actions = {
 
     update({ commit }, data) {
         commit('UPDATE_WORD', data);
+    },
+
+    destroy({ commit }, id) {
+        commit('DESTROY_WORD', id);
     }
 };
 
