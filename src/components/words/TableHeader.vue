@@ -6,7 +6,7 @@
 
         <v-btn icon>
             <span>
-                <v-icon>mdi-plus-cirlce</v-icon>
+                <v-icon x-large>mdi-plus-circle-outline</v-icon>
             </span>
         </v-btn>
     </v-toolbar>

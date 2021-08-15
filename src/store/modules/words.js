@@ -1,32 +1,25 @@
 const state = () => ({
+    idForItem: 4,
+
     items: [
         {
-            word: 'shield',
-            translation: 'tarcza',
+            id: 1,
+            word: 'heater shield',
+            translation: 'tarcza trójkątna',
             notes: '',
             completed: false
         },
         {
-            word: 'shield',
-            translation: 'tarcza',
+            id: 2,
+            word: 'longsword',
+            translation: 'miecz długi',
             notes: '',
             completed: false
         },
         {
-            word: 'shield',
-            translation: 'tarcza',
-            notes: '',
-            completed: false
-        },
-        {
-            word: 'shield',
-            translation: 'tarcza',
-            notes: '',
-            completed: false
-        },
-        {
-            word: 'shield',
-            translation: 'tarcza',
+            id: 3,
+            word: 'mace',
+            translation: 'buzdygan',
             notes: '',
             completed: false
         }
@@ -34,7 +27,9 @@ const state = () => ({
 });
 
 const getters = {
-    items: state => state.items
+    items: state => state.items,
+
+    idForItem: state => state.idForItem
 };
 
 const mutations = {};
