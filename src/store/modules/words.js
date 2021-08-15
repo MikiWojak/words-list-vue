@@ -32,9 +32,34 @@ const getters = {
     idForItem: state => state.idForItem
 };
 
-const mutations = {};
+const mutations = {
+    STORE_WORD(state, item) {
+        state.items.push(item);
+    },
 
-const actions = {};
+    UPDATE_WORD(state, word) {
+        const index = state.items.findIndex(item => item.id === word.id);
+
+        if (~index) {
+            state.items.splice(index, 1, word);
+        }
+    },
+
+    INCREMENT_ID(state) {
+        state.idForItem++;
+    }
+};
+
+const actions = {
+    store({ commit }, data) {
+        commit('STORE_WORD', data);
+        commit('INCREMENT_ID');
+    },
+
+    update({ commit }, data) {
+        commit('UPDATE_WORD', data);
+    }
+};
 
 export default {
     namespaced: true,
