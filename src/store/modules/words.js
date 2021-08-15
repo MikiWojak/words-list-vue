@@ -1,29 +1,7 @@
 const state = () => ({
-    idForItem: 4,
+    idForItem: 1,
 
-    items: [
-        {
-            id: 1,
-            word: 'heater shield',
-            translation: 'tarcza trójkątna',
-            notes: '',
-            completed: false
-        },
-        {
-            id: 2,
-            word: 'longsword',
-            translation: 'miecz długi',
-            notes: '',
-            completed: false
-        },
-        {
-            id: 3,
-            word: 'mace',
-            translation: 'buzdygan',
-            notes: '',
-            completed: false
-        }
-    ]
+    items: []
 });
 
 const getters = {
