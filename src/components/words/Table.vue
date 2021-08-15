@@ -5,8 +5,8 @@
                 <table-header />
             </template>
 
-            <template v-slot:[`item.actions`]>
-                <v-btn icon>
+            <template v-slot:[`item.actions`]="{ item }">
+                <v-btn icon @click="openEditDialog(item)">
                     <span>
                         <v-icon small>mdi-pencil</v-icon>
                     </span>
@@ -19,6 +19,12 @@
                 </v-btn>
             </template>
         </v-data-table>
+
+        <add-edit-dialog
+            :is-opened="!!editedItem"
+            :edited-item="editedItem"
+            @close="closeEditDialog"
+        />
     </div>
 </template>
 
@@ -29,7 +35,14 @@ export default {
     name: 'Table',
 
     components: {
-        TableHeader: () => import('@/components/words/TableHeader')
+        TableHeader: () => import('@/components/words/TableHeader'),
+        AddEditDialog: () => import('@/components/words/AddEditDialog')
+    },
+
+    data() {
+        return {
+            editedItem: null
+        };
     },
 
     computed: {
@@ -45,6 +58,16 @@ export default {
                 { text: 'Completed', value: 'completed' },
                 { text: 'Actions', value: 'actions', sortable: false }
             ];
+        }
+    },
+
+    methods: {
+        openEditDialog(item) {
+            this.editedItem = item;
+        },
+
+        closeEditDialog() {
+            this.editedItem = null;
         }
     }
 };
